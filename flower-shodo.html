@@ -217,56 +217,32 @@ section{padding:130px 0}
   color:#fff;
 }
 .process .section-label{color:rgba(255,255,255,.42)}
-.process-visual{
-  margin-top:54px;
+.process-grid{
+  margin-top:62px;
   display:grid;
-  grid-template-columns:1.08fr .92fr;
-  gap:34px;
-  align-items:stretch;
+  grid-template-columns:repeat(4,1fr);
+  border-top:1px solid rgba(255,255,255,.15);
 }
-.process-illustration-card{
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.10);
-  border-radius:24px;
-  padding:24px;
-  box-shadow:0 26px 60px rgba(15,4,12,.18);
+.step{
+  min-height:280px;
+  padding:28px 24px;
+  border-right:1px solid rgba(255,255,255,.12);
 }
-.process-illustration-card img{
-  width:100%;
-  height:auto;
-  display:block;
-  border-radius:18px;
-  background:#f8f3f0;
+.step:last-child{border-right:0}
+.step-num{
+  font-size:10px;
+  letter-spacing:.18em;
+  color:rgba(255,255,255,.36);
 }
-.process-steps{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:14px;
+.step h3{
+  margin:92px 0 14px;
+  font-size:25px;
+  letter-spacing:-.02em;
 }
-.process-step{
-  display:grid;
-  grid-template-columns:58px 1fr;
-  gap:18px;
-  padding:20px 22px;
-  border:1px solid rgba(255,255,255,.10);
-  border-radius:22px;
-  background:rgba(255,255,255,.04);
-}
-.process-step-num{
-  font-size:12px;
-  letter-spacing:.16em;
-  color:rgba(255,255,255,.42);
-  padding-top:2px;
-}
-.process-step h3{
-  margin:0 0 8px;
-  font-size:20px;
-  letter-spacing:.01em;
-}
-.process-step p{
+.step p{
   margin:0;
-  color:rgba(255,255,255,.68);
-  font-size:14px;
+  color:rgba(255,255,255,.62);
+  font-size:13px;
   line-height:1.9;
 }
 
@@ -377,7 +353,8 @@ footer{
   }
   .hero-art{min-height:60vh}
   .what-copy{grid-template-columns:1fr}
-  .process-visual{grid-template-columns:1fr}
+  .process-grid{grid-template-columns:1fr 1fr}
+  .step:nth-child(2){border-right:0}
 }
 @media(max-width:680px){
   .desktop-project-nav{display:none !important;}
@@ -400,11 +377,9 @@ footer{
     letter-spacing:-.04em;
     white-space:nowrap;
   }
-  .process-visual{grid-template-columns:1fr;gap:18px}
-  .process-illustration-card{padding:16px}
-  .process-step{grid-template-columns:46px 1fr;gap:12px;padding:16px 16px 18px}
-  .process-step h3{font-size:18px}
-  .process-step p{font-size:13px;line-height:1.85}
+  .process-grid{grid-template-columns:1fr}
+  .step{border-right:0;border-bottom:1px solid rgba(255,255,255,.12)}
+  .step h3{margin-top:48px}
   .gallery-grid{
     grid-template-columns:1fr 1fr;
     grid-auto-rows:40px;
@@ -704,40 +679,26 @@ body.menu-open{overflow:hidden}
       <p class="section-label">Process</p>
       <h2 class="section-title">花から、書になるまで。</h2>
 
-      <div class="process-visual">
-        <div class="process-illustration-card">
-          <img src="images/process-steps-illustration.png" alt="FLOWER SHODOの制作工程をシンプルなイラストで表した図">
+      <div class="process-grid">
+        <div class="step">
+          <span class="step-num">01</span>
+          <h3>FLOWERS</h3>
+          <p>廃棄予定・役目を終えた花を受け取ります。</p>
         </div>
-
-        <div class="process-steps">
-          <div class="process-step">
-            <div class="process-step-num">01</div>
-            <div>
-              <h3>花を受け取る</h3>
-              <p>廃棄予定の花や、役目を終えた花を受け取り、次の作品へつなぎます。</p>
-            </div>
-          </div>
-          <div class="process-step">
-            <div class="process-step-num">02</div>
-            <div>
-              <h3>押し花にする</h3>
-              <p>花の色や形をできるだけ残すように、丁寧に押し花へ仕上げます。</p>
-            </div>
-          </div>
-          <div class="process-step">
-            <div class="process-step-num">03</div>
-            <div>
-              <h3>書を書く</h3>
-              <p>作品のテーマに合わせて、紙に書をしたためます。</p>
-            </div>
-          </div>
-          <div class="process-step">
-            <div class="process-step-num">04</div>
-            <div>
-              <h3>重ねて作品にする</h3>
-              <p>押し花を配置し、書と一体になるよう重ねて作品として仕上げます。</p>
-            </div>
-          </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <h3>PRESS</h3>
+          <p>花びらや花を丁寧に押し花にし、色や形をできるだけそのまま残します。</p>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <h3>SHODO</h3>
+          <p>作品の紙に書を書きます。</p>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <h3>LAYER</h3>
+          <p>押し花を一枚ずつ配置し、書と花が一つの作品になるよう重ねて額装します。</p>
         </div>
       </div>
     </div>
