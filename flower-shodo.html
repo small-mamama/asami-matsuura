@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>松浦 麻未 | FLOWER SHODO</title>
+<meta name="description" content="役目を終えた花の色や痕跡と書を重ねるアートプロジェクト、FLOWER SHODO。">
+<style>
+:root{
+  --violet:#351327;
+  --violet2:#471735;
+  --paper:#f6f0ec;
+  --paper2:#eee5e1;
+  --ink:#2e282d;
+  --muted:#766a72;
+  --accent:#99577e;
+  --line:rgba(46,40,45,.14);
+  --white:#fffaf8;
+  --shadow:0 28px 70px rgba(53,19,39,.15);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+}
+a{color:inherit;text-decoration:none}
+.serif{font-family:"Yu Mincho","Hiragino Mincho ProN","YuMincho","Times New Roman",serif}
+.wrap{width:min(1160px,calc(100% - 40px));margin:0 auto}
+
+header{
+  position:fixed;
+  inset:0 0 auto 0;
+  z-index:100;
+  padding:18px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  color:#fff;
+  background:linear-gradient(to bottom,rgba(53,19,39,.92),rgba(53,19,39,.16),transparent);
+}
+.back{
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.project-mark{
+  font-size:11px;
+  letter-spacing:.20em;
+  font-weight:700;
+}
+
+/* Hero */
+.hero{
+  min-height:100svh;
+  background:
+    radial-gradient(circle at 20% 10%,rgba(218,104,168,.12),transparent 24%),
+    radial-gradient(circle at 82% 16%,rgba(103,101,180,.10),transparent 20%),
+    linear-gradient(180deg,var(--violet2),var(--violet));
+  display:grid;
+  grid-template-columns:.78fr 1.22fr;
+  gap:70px;
+  align-items:center;
+  padding:110px max(24px,calc((100vw - 1160px)/2)) 70px;
+}
+.hero-copy{
+  color:#fff;
+}
+.kicker{
+  margin:0 0 20px;
+  font-size:10px;
+  letter-spacing:.26em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.50);
+}
+h1{
+  margin:0;
+  font-size:clamp(66px,10vw,138px);
+  line-height:.80;
+  letter-spacing:-.07em;
+}
+.lead{
+  margin:38px 0 0;
+  font-family:"Yu Mincho","Hiragino Mincho ProN","YuMincho",serif;
+  font-size:clamp(24px,3vw,42px);
+  line-height:1.55;
+  font-weight:500;
+}
+.hero-art{
+  position:relative;
+  min-height:70vh;
+  background:
+    radial-gradient(circle at 14% 18%,rgba(255,71,151,.88) 0 8%,transparent 16%),
+    radial-gradient(circle at 82% 18%,rgba(100,145,255,.78) 0 7%,transparent 16%),
+    radial-gradient(circle at 24% 78%,rgba(255,183,83,.74) 0 8%,transparent 17%),
+    radial-gradient(circle at 76% 74%,rgba(139,86,223,.76) 0 9%,transparent 17%),
+    radial-gradient(circle at 48% 48%,rgba(255,255,255,.62),transparent 28%),
+    linear-gradient(135deg,#f0cede 0%,#e5d8ef 40%,#d6e4f3 72%,#eed6cf 100%);
+  box-shadow:0 30px 80px rgba(20,5,16,.30);
+}
+.hero-art::after{
+  content:"作品写真";
+  position:absolute;
+  inset:50% auto auto 50%;
+  transform:translate(-50%,-50%);
+  color:#41343e;
+  font-family:"Yu Mincho","Hiragino Mincho ProN","YuMincho",serif;
+  font-size:clamp(32px,5vw,62px);
+  letter-spacing:.12em;
+  white-space:nowrap;
+}
+
+/* shared */
+section{padding:130px 0}
+.section-label{
+  margin:0 0 18px;
+  color:#a18f9b;
+  font-size:10px;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+}
+.section-title{
+  margin:0;
+  font-family:"Yu Mincho","Hiragino Mincho ProN","YuMincho",serif;
+  font-size:clamp(40px,6vw,72px);
+  line-height:1.18;
+  font-weight:500;
+}
+.copy{
+  color:var(--muted);
+  font-size:16px;
+  line-height:2.15;
+}
+
+/* About Project */
+.about-project{
+  background:var(--paper);
+}
+.about-project-grid{
+  display:grid;
+  grid-template-columns:.78fr 1.22fr;
+  gap:90px;
+  align-items:start;
+}
+.about-project-left{
+  position:sticky;
+  top:110px;
+}
+.about-project-lead{
+  margin:26px 0 0;
+  font-family:"Yu Mincho","Hiragino Mincho ProN","YuMincho",serif;
+  font-size:clamp(30px,4.3vw,54px);
+  line-height:1.5;
+  font-weight:500;
+  color:#463b43;
+}
+.about-project-copy{
+  display:grid;
+  gap:44px;
+}
+.about-block{
+  padding-top:30px;
+  border-top:1px solid var(--line);
+}
+.about-block:first-child{
+  border-top:none;
+  padding-top:0;
+}
+.about-block-label{
+  margin:0 0 12px;
+  font-size:10px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#a08e99;
+}
+.about-block h3{
+  margin:0 0 18px;
+  font-family:"Yu Mincho","Hiragino Mincho ProN","YuMincho",serif;
+  font-size:clamp(24px,3vw,38px);
+  font-weight:500;
+  line-height:1.5;
+}
+.about-block p{
+  margin:0;
+  color:var(--muted);
+  font-size:15px;
+  line-height:2.1;
+}
+.material-list{
+  margin-top:22px;
+  display:grid;
+  gap:0;
+  border-top:1px solid var(--line);
+}
+.material-item{
+  display:grid;
+  grid-template-columns:130px 1fr;
+  gap:22px;
+  padding:18px 0;
+  border-bottom:1px solid var(--line);
+}
+.material-item b{
+  font-size:10px;
+  letter-spacing:.12em;
+}
+.material-item span{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.85;
+}
+
+/* Process */
+.process{
+  background:var(--violet);
+  color:#fff;
+}
+.process .section-label{color:rgba(255,255,255,.42)}
+.process-grid{
+  margin-top:62px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-top:1px solid rgba(255,255,255,.15);
+}
+.step{
+  min-height:280px;
+  padding:28px 24px;
+  border-right:1px solid rgba(255,255,255,.12);
+}
+.step:last-child{border-right:0}
+.step-num{
+  font-size:10px;
+  letter-spacing:.18em;
+  color:rgba(255,255,255,.36);
+}
+.step h3{
+  margin:92px 0 14px;
+  font-size:25px;
+  letter-spacing:-.02em;
+}
+.step p{
+  margin:0;
+  color:rgba(255,255,255,.62);
+  font-size:13px;
+  line-height:1.9;
+}
+
+/* Collaboration */
+.collab{
+  background:var(--paper);
+}
+.collab .section-title{
+  max-width:880px;
+  font-size:clamp(38px,5.2vw,68px);
+  line-height:1.22;
+  letter-spacing:-.025em;
+}
+.collab-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:34px;
+}
+.collab-box{
+  padding-top:24px;
+  border-top:1px solid var(--line);
+}
+.collab-box h3{
+  margin:0 0 16px;
+  font-size:22px;
+  font-weight:500;
+}
+.collab-box p{
+  margin:0;
+  color:var(--muted);
+  font-size:14px;
+  line-height:2;
+}
+.order-link{
+  display:inline-flex;
+  align-items:center;
+  gap:14px;
+  margin-top:18px;
+  padding-bottom:6px;
+  border-bottom:1px solid rgba(46,40,45,.24);
+  color:#5f525b;
+  font-size:11px;
+  letter-spacing:.10em;
+}
+.order-link span{transition:transform .2s ease}
+.order-link:hover span{transform:translateX(5px)}
+
+/* CTA */
+.cta{
+  background:var(--violet);
+  color:#fff;
+}
+.cta-inner{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:70px;
+  align-items:end;
+}
+.cta h2{
+  margin:0;
+  font-size:clamp(44px,8vw,92px);
+  line-height:.92;
+  letter-spacing:-.05em;
+}
+.cta p{
+  margin:0;
+  color:rgba(255,255,255,.64);
+  font-size:14px;
+  line-height:2;
+}
+.links{
+  margin-top:26px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:13px;
+}
+.links a{
+  padding-bottom:6px;
+  border-bottom:1px solid rgba(255,255,255,.22);
+  font-size:12px;
+  letter-spacing:.10em;
+  color:rgba(255,255,255,.82);
+}
+
+footer{
+  padding:26px 0;
+  background:#24101d;
+  color:rgba(255,255,255,.34);
+  font-size:9px;
+  letter-spacing:.12em;
+}
+.footer-row{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+}
+
+@media(max-width:900px){
+  .hero,.about-project-grid,.collab-grid,.cta-inner{
+    grid-template-columns:1fr;
+  }
+  .about-project-grid{
+    gap:44px;
+  }
+  .about-project-left{
+    position:static;
+  }
+  .hero-art{min-height:60vh}
+  .what-copy{grid-template-columns:1fr}
+  .process-grid{grid-template-columns:1fr 1fr}
+  .step:nth-child(2){border-right:0}
+}
+@media(max-width:680px){
+  header{padding:14px 16px}
+  .wrap{width:min(100% - 30px,1160px)}
+  .hero{
+    padding:100px 15px 60px;
+    gap:46px;
+  }
+  h1{font-size:clamp(58px,18vw,100px)}
+  .collab .section-title{
+    font-size:clamp(34px,9vw,46px);
+    line-height:1.3;
+  }
+  section{padding:88px 0}
+  .process-grid{grid-template-columns:1fr}
+  .step{border-right:0;border-bottom:1px solid rgba(255,255,255,.12)}
+  .step h3{margin-top:48px}
+  .gallery-grid{
+    grid-template-columns:1fr 1fr;
+    grid-auto-rows:40px;
+    gap:12px;
+  }
+  .p1,.p2,.p3,.p4,.p5{grid-column:auto}
+  .p1{grid-row:span 7}
+  .p2{grid-row:span 5}
+  .p3{grid-row:span 6}
+  .p4{grid-row:span 5}
+  .p5{grid-row:span 6}
+  .material-item{grid-template-columns:1fr;gap:8px}
+  .footer-row{flex-direction:column}
+}
+</style>
+
+<style>
+.flower-works-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:30px;
+  margin-top:46px;
+}
+.flower-work{min-width:0}
+.flower-work figure{margin:0}
+.flower-work img{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:contain;
+  background:#f7f2ee;
+}
+.flower-work figcaption{
+  margin-top:10px;
+  font-size:11px;
+  letter-spacing:.08em;
+  color:#7b6e76;
+}
+.flower-work.wide{grid-column:1/-1}
+@media(max-width:760px){
+  .flower-works-grid{grid-template-columns:1fr;gap:24px}
+  .flower-work.wide{grid-column:auto}
+}
+</style>
+
+
+<style>
+/* FLOWER SHODO hero: text only */
+.project-hero-grid,
+.hero-grid,
+.project-hero .inner,
+.hero .inner{
+  grid-template-columns:1fr !important;
+}
+.project-hero-copy,
+.hero-copy{
+  max-width:820px;
+}
+.project-hero-visual,
+.hero-visual,
+.project-visual{
+  display:none !important;
+}
+
+.hero-art.hero-art-image{
+  background:none!important;
+  box-shadow:none!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+.hero-art.hero-art-image::after{content:none!important;}
+.hero-art.hero-art-image img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  filter:drop-shadow(0 24px 44px rgba(20,8,16,.18));
+}
+</style>
+
+
+<style>
+/* FLOWER SHODO hero: text only */
+.hero{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  grid-template-columns:none !important;
+  min-height:100svh;
+}
+.hero-copy{
+  max-width:760px;
+}
+.hero-art,
+.hero-art-image{
+  display:none !important;
+}
+</style>
+
+<style>
+/* WORKS: portrait作品は画像内の外側余白を少しだけトリミング */
+.flower-work:not(.wide) figure{
+  overflow:hidden;
+}
+.flower-work:not(.wide) img{
+  width:110% !important;
+  max-width:none !important;
+  margin-left:-5% !important;
+  height:auto !important;
+  object-fit:contain !important;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+  <a class="back" href="index.html">← Back to Artist Site</a>
+  <div style="display:flex;gap:20px;align-items:center;"><a href="order.html" style="font-size:10px;letter-spacing:.14em;">ORDER</a><span class="project-mark">FLOWER SHODO</span></div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="kicker">Art Project / Flowers × Shodo</p>
+      <h1>FLOWER<br>SHODO</h1>
+      <p class="lead">花を残し、<br>書と重ねる。</p>
+    </div>
+  </section>
+
+  <section class="about-project">
+    <div class="wrap about-project-grid">
+      <div class="about-project-left">
+        <p class="section-label">What is FLOWER SHODO?</p>
+        <h2 class="section-title">FLOWER SHODO<br>とは？</h2>
+
+        <p class="about-project-lead">
+          花を捨てずに、<br>
+          作品へ。
+        </p>
+      </div>
+
+      <div class="about-project-copy">
+        <div class="about-block">
+          <p class="about-block-label">Concept</p>
+          <h3>廃棄予定の花を押し花にし、<br>書と重ねるアートプロジェクト</h3>
+          <p>
+            販売できなくなった花や、装飾としての役目を終えた花を押し花として残し、
+            書いた紙の上に一枚ずつ重ねて作品にします。
+          </p>
+        </div>
+
+        <div class="about-block">
+          <p class="about-block-label">Materials</p>
+          <h3>作品に使う花について。</h3>
+          <p>
+            販売期限を迎えた花や、イベント・式場・店舗装飾などで役目を終えた花を押し花にして使用します。
+          </p>
+
+          <div class="material-list">
+            <div class="material-item">
+              <b>FLOWERS</b>
+              <span>販売期限を迎えた花、式場・イベント・店舗装飾などで役目を終えた花を押し花として残します。</span>
+            </div>
+            <div class="material-item">
+              <b>PAPER</b>
+              <span>書き味や作品サイズに合わせて、和紙や水彩紙などを選びます。</span>
+            </div>
+            <div class="material-item">
+              <b>INK</b>
+              <span>墨による書を中心に、押し花の色や配置とのバランスを見ながら仕上げます。</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process">
+    <div class="wrap">
+      <p class="section-label">Process</p>
+      <h2 class="section-title">花から、書になるまで。</h2>
+
+      <div class="process-grid">
+        <div class="step">
+          <span class="step-num">01</span>
+          <h3>FLOWERS</h3>
+          <p>廃棄予定・役目を終えた花を受け取ります。</p>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <h3>PRESS</h3>
+          <p>花びらや花を丁寧に押し花にし、色や形をできるだけそのまま残します。</p>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <h3>SHODO</h3>
+          <p>作品の紙に書を書きます。</p>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <h3>LAYER</h3>
+          <p>押し花を一枚ずつ配置し、書と花が一つの作品になるよう重ねて額装します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  
+
+  <section class="collab">
+    <div class="wrap">
+      <p class="section-label">Collaboration</p>
+      <h2 class="section-title">廃棄予定の花を、<br>もう一度作品として<br>咲かせませんか？</h2>
+
+      <div class="collab-grid" style="margin-top:58px;">
+        <div class="collab-box">
+          <h3>Collaboration / Exhibition</h3>
+          <p>
+            ご提供いただいた花を使った作品制作や展示、企業・ブランドとの共同企画など、ぜひご相談ください。
+          </p>
+        </div>
+
+        <div class="collab-box">
+          <h3>Workshop</h3>
+          <p>
+            押し花と書を組み合わせた制作体験など、イベントや施設でのワークショップを予定しています。
+          </p>
+        </div>
+
+        <div class="collab-box">
+          <h3>Project / Order</h3>
+          <p>
+            廃棄予定の花や、思い出の花、イベントで使用した花を押し花にして書と重ね、作品として残します。
+            花材提供やオーダー制作についてもご相談ください。
+          </p>
+          <a class="order-link" href="order.html">FLOWER SHODOのオーダーはこちら <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+<section class="works" id="works">
+  <div class="wrap">
+    <p class="section-label">Works</p>
+    <h2 class="section-title">FLOWER SHODO 作品</h2>
+    <div class="flower-works-grid">
+      <article class="flower-work wide">
+        <figure>
+          <img src="images/flower-mother.png" alt="FLOWER SHODO作品「母であり、私であり」">
+          <figcaption>母であり、私であり</figcaption>
+        </figure>
+      </article>
+      <article class="flower-work">
+        <figure>
+          <img src="images/flower-smile.png" alt="FLOWER SHODO作品「笑門来福」">
+          <figcaption>笑門来福</figcaption>
+        </figure>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+    <div class="wrap cta-inner">
+      <div>
+        <p class="section-label">Contact</p>
+        <h2>LET'S<br>CREATE.</h2>
+      </div>
+      <div>
+        <p>
+          FLOWER SHODOへの花材提供、展示、共同企画、取材などのご相談はこちらから。
+        </p>
+        <div class="links">
+          <a href="order.html">オーダー・制作のご相談 →</a>
+          <a href="index.html">Artist Siteへ戻る →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>FLOWER SHODO / ART PROJECT</span>
+    <span>© 2026</span>
+  </div>
+</footer>
+
+</body>
+</html>
