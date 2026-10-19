@@ -294,19 +294,131 @@ footer{padding:90px 0 40px;background:#25101e;color:#fff}
   .hero-side-flowers{display:none;}
 }
 </style>
+
+
+/* Mobile navigation */
+.mobile-menu-toggle{
+  display:none;
+  appearance:none;
+  border:0;
+  background:transparent;
+  color:#fff;
+  padding:8px 0 8px 10px;
+  font:inherit;
+  cursor:pointer;
+  align-items:center;
+  gap:9px;
+  position:relative;
+  z-index:202;
+}
+.mobile-menu-toggle .menu-label{
+  font-size:9px;
+  letter-spacing:.16em;
+}
+.mobile-menu-toggle .menu-icon{
+  width:22px;
+  height:14px;
+  position:relative;
+  display:inline-block;
+}
+.mobile-menu-toggle .menu-icon::before,
+.mobile-menu-toggle .menu-icon::after,
+.mobile-menu-toggle .menu-icon span{
+  content:"";
+  position:absolute;
+  left:0;
+  width:100%;
+  height:1px;
+  background:currentColor;
+  transition:transform .25s ease,top .25s ease,opacity .2s ease;
+}
+.mobile-menu-toggle .menu-icon::before{top:0}
+.mobile-menu-toggle .menu-icon span{top:6px}
+.mobile-menu-toggle .menu-icon::after{top:12px}
+.mobile-menu-toggle[aria-expanded="true"] .menu-icon::before{top:6px;transform:rotate(45deg)}
+.mobile-menu-toggle[aria-expanded="true"] .menu-icon span{opacity:0}
+.mobile-menu-toggle[aria-expanded="true"] .menu-icon::after{top:6px;transform:rotate(-45deg)}
+.mobile-menu-panel{
+  position:fixed;
+  inset:0;
+  z-index:190;
+  background:linear-gradient(180deg,#471735 0%,#351327 100%);
+  color:#fff;
+  padding:104px 28px 38px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(-10px);
+  transition:opacity .25s ease,transform .25s ease,visibility .25s;
+}
+.mobile-menu-panel.is-open{
+  opacity:1;
+  visibility:visible;
+  transform:none;
+}
+.mobile-menu-links{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+.mobile-menu-links a{
+  width:100%;
+  padding:17px 0;
+  border-bottom:1px solid rgba(255,255,255,.14);
+  font-family:"Yu Mincho","Hiragino Mincho ProN","YuMincho",serif;
+  font-size:clamp(28px,9vw,42px);
+  line-height:1.15;
+  letter-spacing:.01em;
+}
+.mobile-menu-links a small{
+  display:block;
+  margin-top:6px;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+  font-size:9px;
+  letter-spacing:.18em;
+  color:rgba(255,255,255,.46);
+}
+.mobile-menu-foot{
+  font-size:9px;
+  letter-spacing:.14em;
+  color:rgba(255,255,255,.38);
+}
+body.menu-open{overflow:hidden}
+@media(max-width:680px){
+  .mobile-menu-toggle{display:flex}
+}
+
 </head>
 <body>
 
 <header>
   <a href="#top" class="logo">松浦 麻未</a>
   <nav>
-    <a href="#flower-shodo">Flower Shodo</a>
+    <a href="flower-shodo.html">Flower Shodo</a>
     <a href="#about">About</a>
     <a href="order.html">Order</a>
     <a href="#profile">Profile</a>
     <a href="#contact">Contact</a>
   </nav>
+  <button class="mobile-menu-toggle" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="メニューを開く">
+    <span class="menu-label">MENU</span><span class="menu-icon"><span></span></span>
+  </button>
 </header>
+
+<div class="mobile-menu-panel" id="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu-links">
+    <a href="index.html">TOP<small>Artist Site</small></a>
+    <a href="flower-shodo.html">FLOWER SHODO<small>Art Project</small></a>
+    <a href="order.html">ORDER<small>Commission</small></a>
+    <a href="index.html#about">ABOUT</a>
+    <a href="index.html#profile">PROFILE</a>
+    <a href="index.html#contact">CONTACT</a>
+  </div>
+  <div class="mobile-menu-foot">松浦 麻未 / CALLIGRAPHY & ART</div>
+</div>
+
 
 <main>
 <section class="hero" id="top">
@@ -404,6 +516,24 @@ footer{padding:90px 0 40px;background:#25101e;color:#fff}
     </div>
   </div>
 </footer>
+
+
+<script>
+(function(){
+  const button=document.querySelector('.mobile-menu-toggle');
+  const panel=document.getElementById('mobile-menu');
+  if(!button||!panel) return;
+  function setOpen(open){
+    button.setAttribute('aria-expanded', open ? 'true' : 'false');
+    panel.classList.toggle('is-open', open);
+    panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+    document.body.classList.toggle('menu-open', open);
+  }
+  button.addEventListener('click',()=>setOpen(button.getAttribute('aria-expanded')!=='true'));
+  panel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setOpen(false)));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape') setOpen(false)});
+})();
+</script>
 
 </body>
 </html>
