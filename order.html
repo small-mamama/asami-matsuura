@@ -62,20 +62,15 @@ section{padding:112px 0}
 .order-item{min-width:0}
 .order-art{
   width:100%;
-  aspect-ratio:4/3;
   margin-bottom:24px;
   background:#eee8e4;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
   box-shadow:0 14px 34px rgba(50,25,40,.08)
 }
-/* 作品全体が見えるように crop しない */
+/* 画像自体の縦横比に合わせて高さを決め、作品を切り取らずに表示する */
 .order-art img{
+  display:block;
   width:100%;
-  height:100%;
-  object-fit:contain;
+  height:auto;
   background:#f4efec
 }
 .art-flower{
