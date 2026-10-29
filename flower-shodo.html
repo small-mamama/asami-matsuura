@@ -435,9 +435,23 @@ footer{
   color:#7b6e76;
 }
 .flower-work.wide{grid-column:1/-1}
+.postcard-shop-note{
+  display:flex;align-items:center;justify-content:space-between;gap:28px;
+  margin-top:58px;padding-top:28px;border-top:1px solid rgba(46,40,45,.18)
+}
+.postcard-shop-note .section-label{margin-bottom:12px}
+.postcard-shop-note p:last-child{margin:0;color:var(--muted);font-size:14px;line-height:1.9}
+.postcard-shop-link{
+  display:inline-flex;align-items:center;gap:20px;flex-shrink:0;
+  padding:12px 0 8px;border-bottom:1px solid rgba(46,40,45,.35);
+  color:#5f525b;font-size:12px;letter-spacing:.08em
+}
+.postcard-shop-link span{transition:transform .2s ease}
+.postcard-shop-link:hover span{transform:translateX(5px)}
 @media(max-width:760px){
   .flower-works-grid{grid-template-columns:1fr;gap:24px}
   .flower-work.wide{grid-column:auto}
+  .postcard-shop-note{align-items:flex-start;flex-direction:column;gap:8px;margin-top:42px}
 }
 </style>
 
@@ -776,6 +790,13 @@ body.menu-open{overflow:hidden}
           <figcaption>flower命名書</figcaption>
         </figure>
       </article>
+    </div>
+    <div class="postcard-shop-note">
+      <div>
+        <p class="section-label">Postcard</p>
+        <p>FLOWER SHODOのポストカードの一部は、BASEショップでも販売しています。</p>
+      </div>
+      <a class="postcard-shop-link" href="https://koshu.shopselect.net" target="_blank" rel="noopener noreferrer">ポストカードを見る <span aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>
