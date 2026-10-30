@@ -623,6 +623,17 @@ body.menu-open{overflow:hidden}
 
 </style>
 
+<style>
+/* 更新作品4点は原画を切り抜かず、余白も含めてそのまま表示 */
+.flower-work.keep-full-image:not(.wide) img,
+.flower-work.keep-full-image.wide img {
+  width:100% !important;
+  max-width:100% !important;
+  margin-left:0 !important;
+  height:auto !important;
+  object-fit:contain !important;
+}
+</style>
 </head>
 <body>
 
@@ -766,22 +777,24 @@ body.menu-open{overflow:hidden}
           <figcaption>母であり、私であり</figcaption>
         </figure>
       </article>
-      <article class="flower-work wide">
-        <figure>
-          <img src="images/flower-hana.jpeg" alt="FLOWER SHODO作品「花」" loading="lazy">
-          <figcaption>花</figcaption>
-        </figure>
-      </article>
+
       <article class="flower-work">
         <figure>
           <img src="images/flower-smile.png" alt="FLOWER SHODO作品「笑門来福」">
           <figcaption>笑門来福</figcaption>
         </figure>
       </article>
-      <article class="flower-work">
+
+      <article class="flower-work keep-full-image">
         <figure>
-          <img src="images/flower-watashirashiku.jpeg" alt="FLOWER SHODO作品「私らしく」" loading="lazy">
-          <figcaption>私らしく</figcaption>
+          <img src="images/flower-haru.jpeg" alt="FLOWER SHODO作品「春」" loading="lazy">
+          <figcaption>春</figcaption>
+        </figure>
+      </article>
+      <article class="flower-work keep-full-image">
+        <figure>
+          <img src="images/flower-kaoru.jpeg" alt="FLOWER SHODO作品「薫」" loading="lazy">
+          <figcaption>薫</figcaption>
         </figure>
       </article>
       <article class="flower-work wide">
